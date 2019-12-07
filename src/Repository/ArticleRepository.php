@@ -29,6 +29,8 @@ class ArticleRepository extends ServiceEntityRepository
     public function findAllPublished(string $publishedAtOrder = 'DESC')
     {
         return $this->addIsPublishedQueryBuilder()
+            ->leftJoin('a.tags', 't')
+            ->addSelect('t')
             ->orderBy('a.publishedAt', $publishedAtOrder)
             ->setMaxResults(10)
             ->getQuery()
