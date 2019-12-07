@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </form>
-            <table>
+            <table class="table">
                 <thead>
                 <tr>
                     <th>Article</th>
@@ -48,6 +48,12 @@
                             </td>
                             <td>
                                 {{ comment.createdAt|ago }}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4" class="text-center">
+                                No comments found.
                             </td>
                         </tr>
                     {% endfor %}
